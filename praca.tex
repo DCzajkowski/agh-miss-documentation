@@ -98,6 +98,7 @@ backend=bibtex
 \usepackage{multirow}
 \usepackage{booktabs}
 \usepackage{makecell}
+\usepackage{blindtext}
 \usepackage[flushleft]{threeparttable}
 
 % defines the X column to use m (\parbox[c]) instead of p (`parbox[t]`)
@@ -153,23 +154,31 @@ backend=bibtex
 \fancypagestyle{plain}
 {
   % Usuń nagłówek i stopkę
-  \fancyhf{}
-  % Usuń linie.
-  \renewcommand{\headrulewidth}{0pt}
-  \renewcommand{\footrulewidth}{0pt}
+  % \fancyhf{}
+  % % Usuń linie.
+  % \renewcommand{\headrulewidth}{0pt}
+  % \renewcommand{\footrulewidth}{0pt}
+  % \fancyhf{}
+  % \fancyhead{}
+  %\fancyhead[L]{\slshape{\small \rightmark}}
+  % \fancyhead[L]{\slshape{\small \rightmark}}
+  % \fancyhead[RO,LE]{\slshape{\small \rightmark}}
+  %\fancyhead[R]{\bfseries \thepage}
+  \fancyhead[R]{\bfseries \thepage}
 }
 
 \renewcommand{\contentsname}{Table of Contents}
+\renewcommand{\bibname}{References}
 \setcounter{tocdepth}{2}
 \tableofcontents
 \clearpage
 
-\include{rozdzial1}
-\include{rozdzial2}
-\include{rozdzial3}
-\include{tests}
-
-
+\include{chapters/introduction}
+\include{chapters/literature_review}
+\include{chapters/proposed_model_of_the_phenomenon}
+\include{chapters/simulation_of_the_phenomenon_-_implementation}
+\include{chapters/results_of_the_simulation}
+\include{chapters/conclusions}
 
 % itd.
 % \appendix
