@@ -1,17 +1,18 @@
-\documentclass[11pt]{aghdpl}
-% \documentclass[en,11pt]{aghdpl}  % praca w języku angielskim
+% \documentclass[11pt]{aghdpl}
+\documentclass[en,11pt]{aghdpl}  % praca w języku angielskim
 
 % Lista wszystkich języków stanowiących języki pozycji bibliograficznych użytych w pracy.
 % (Zgodnie z zasadami tworzenia bibliografii każda pozycja powinna zostać utworzona zgodnie z zasadami języka, w którym dana publikacja została napisana.)
 \usepackage[english,polish]{babel}
 
 % Użyj polskiego łamania wyrazów (zamiast domyślnego angielskiego).
-\usepackage{polski}
+% \usepackage{polski}
 
 \usepackage[utf8]{inputenc}
 
 % dodatkowe pakiety
 
+% \usepackage{geometry}
 \usepackage{mathtools}
 \usepackage{amsfonts}
 \usepackage{amsmath}
@@ -43,7 +44,7 @@ backend=bibtex
 
 \usepackage{csquotes}
 % Ponieważ `csquotes` nie posiada polskiego stylu, można skorzystać z mocno zbliżonego stylu chorwackiego.
-\DeclareQuoteAlias{croatian}{polish}
+% \DeclareQuoteAlias{croatian}{polish}
 
 \addbibresource{bibliografia.bib}
 
@@ -61,7 +62,7 @@ backend=bibtex
 \lstloadlanguages{TeX}
 
 \lstset{
-	literate={ą}{{\k{a}}}1
+  literate={ą}{{\k{a}}}1
            {ć}{{\'c}}1
            {ę}{{\k{e}}}1
            {ó}{{\'o}}1
@@ -79,14 +80,14 @@ backend=bibtex
            {Ś}{{\'S}}1
            {Ź}{{\'Z}}1
            {Ż}{{\.Z}}1,
-	basicstyle=\footnotesize\ttfamily,
+  basicstyle=\footnotesize\ttfamily,
 }
 
 % ------------------------
 
 \AtBeginDocument{
-	\renewcommand{\tablename}{Tabela}
-	\renewcommand{\figurename}{Rys.}
+  \renewcommand{\tablename}{Table}
+  \renewcommand{\figurename}{Picture}
 }
 
 % ------------------------
@@ -105,37 +106,37 @@ backend=bibtex
 
 %---------------------------------------------------------------------------
 
-\author{Marcin Szpyrka}
-\shortauthor{M. Szpyrka}
+\author{Dariusz Czajkowski, Grzegorz Tłuszcz}
+\shortauthor{D. Czajkowski, G. Tłuszcz}
 
 %\titlePL{Przygotowanie bardzo długiej i pasjonującej pracy dyplomowej w~systemie~\LaTeX}
 %\titleEN{Preparation of a very long and fascinating bachelor or master thesis in \LaTeX}
 
-\titlePL{Przygotowanie pracy dyplomowej w~systemie~\LaTeX}
-\titleEN{Thesis in \LaTeX}
+\titlePL{}
+\titleEN{Modeling movement of people using a mobile application}
 
 
-\shorttitlePL{Przygotowanie pracy dyplomowej w~systemie \LaTeX} % skrócona wersja tytułu jeśli jest bardzo długi
-\shorttitleEN{Preparation of a long and fascinating thesis in \LaTeX}
+\shorttitlePL{}
+\shorttitleEN{Modeling movement of people using a mobile application}
 
-\thesistype{Praca dyplomowa magisterska}
+\thesistype{Modeling and Simulation of Systems}
 %\thesistype{Master of Science Thesis}
 
-\supervisor{prof. dr hab. Marcin Szpyrka}
-%\supervisor{Marcin Szpyrka PhD, DSc}
+\supervisor{dr hab. inż. Jarosław Wąs}
+% \supervisor{Jarosław Wąs PhD, DSc}
 
-\degreeprogramme{Informatyka}
-%\degreeprogramme{Computer Science}
+% \degreeprogramme{Informatyka}
+\degreeprogramme{Computer Science}
 
-\date{2015}
+\date{2018}
 
-\department{Katedra Informatyki Stosowanej}
-%\department{Department of Applied Computer Science}
+% \department{Katedra Informatyki Stosowanej}
+\department{}
 
-\faculty{Wydział Elektrotechniki, Automatyki,\protect\\[-1mm] Informatyki i Inżynierii Biomedycznej}
-%\faculty{Faculty of Electrical Engineering, Automatics, Computer Science and Biomedical Engineering}
+% \faculty{Wydział Elektrotechniki, Automatyki,\protect\\[-1mm] Informatyki i Inżynierii Biomedycznej}
+\faculty{Faculty of Electrical Engineering, Automatics, Computer Science and Biomedical Engineering}
 
-\acknowledgements{Serdecznie dziękuję \dots tu ciąg dalszych podziękowań np. dla promotora, żony, sąsiada itp.}
+\acknowledgements{}
 
 
 \setlength{\cftsecnumwidth}{10mm}
@@ -151,20 +152,21 @@ backend=bibtex
 % Ponowne zdefiniowanie stylu `plain`, aby usunąć numer strony z pierwszej strony spisu treści i poszczególnych rozdziałów.
 \fancypagestyle{plain}
 {
-	% Usuń nagłówek i stopkę
-	\fancyhf{}
-	% Usuń linie.
-	\renewcommand{\headrulewidth}{0pt}
-	\renewcommand{\footrulewidth}{0pt}
+  % Usuń nagłówek i stopkę
+  \fancyhf{}
+  % Usuń linie.
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
 }
 
+\renewcommand{\contentsname}{Table of Contents}
 \setcounter{tocdepth}{2}
 \tableofcontents
 \clearpage
 
-\include{rozdzial3}
 \include{rozdzial1}
 \include{rozdzial2}
+\include{rozdzial3}
 \include{tests}
 
 
