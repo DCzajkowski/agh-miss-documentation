@@ -85,8 +85,26 @@
 
 \ProcessOptions
 
+% \fancypagestyle{plainTrue}
+% {
+%   % Usuń nagłówek i stopkę
+%   \fancyhf{}
+%   % % Usuń linie.
+%   \renewcommand{\headrulewidth}{0pt}
+%   \renewcommand{\footrulewidth}{0pt}
+%   % \fancyhf{}
+%   % \fancyhead{}
+%   %\fancyhead[L]{\slshape{\small \rightmark}}
+%   % \fancyhead[L]{\slshape{\small \rightmark}}
+%   % \fancyhead[RO,LE]{\slshape{\small \rightmark}}
+%   %\fancyhead[R]{\bfseries \thepage}
+%   % \fancyhead[R]{\bfseries \thepage}
+% }
+
 \newcommand{\titlepages}{%
-    \newpage \titlepage
+    \newpage
+    % \thispagestyle{plainTrue}
+    \titlepage
 
     \begin{center}
     \vspace*{1.5cm}
