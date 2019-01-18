@@ -1,3 +1,13 @@
 \chapter{Introduction}
 
-\blindtext[6]
+\section{Problem description}
+
+The goal of the following work is to model the movement of pedestrians using the GPS technology. Nowadays, tracking people is a very popular subject. It is used from tracking sport-related activities to tracking criminal suspects by the police or private detectives. Wanting to track anyone is one thing, but there are many challenges that developers face when it comes to the implementation. Many apps rely on accurate data where a few-meter difference is not acceptable.
+
+The main problem with location-based apps is that they don’t filter movement by other means of transportations. Imagine a situation where you have an app that tracks your rollerblade riding. First, you get in a car, get to a park with good quality asphalt paths, you turn on the tracker and start your activity. Whether by mistake or not, you get in your car afterward and forget to turn the tracker off. You get to your home and by the time you want to share your ride on social media you realize, the tracker had been on for the whole ride back home. Now it’s too late, you can’t remove this activity, and even if you could, it’s too much of a hassle. This is obviously not ideal and software algorithms could quickly remove data that is irrelevant.
+
+The subject of the following work was to create a mobile app that would allow to accurately track the movement of people. It is focused on gathering GPS-based data and filtering those, that are not connected to walking. Furthermore, all data considered legitimate is displayed on an interactive map in real time. Every user of the app is visible to everyone. If they start riding a car, their location disappears, as they are not walking anymore. Additionally, if you press on any person’s location you will see their entire history of where and when they walked. The app is a proof of concept and it doesn’t have any special meaning by itself, but its ideas and algorithms can be applied to any future work that requires gathering GPS-based locations.
+
+\section{Potential solution}
+
+We have looked at many apps on the market that are supposed to track walking, but none of them filtered riding a car. We looked at possible solutions to the problem and we realized, there isn’t much on the web. We had to come up with an algorithm that would preserve data that involved walking and would discard data that didn’t. Our first thought was to simply filter out points that were apart a distance, that wouldn’t be possible for a human to be made. It appears, that a maximum speed of a human is 44km/h\cite{GuinessWorldRecordsHumanSpeed}, which is not ideal considering, this could be an average speed of a car in a city. The final algorithm and all considerations are mentioned in the work that follows.

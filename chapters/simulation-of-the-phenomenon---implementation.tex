@@ -1,0 +1,15 @@
+\chapter{Simulation of the phenomenon - implementation}
+
+\section{Technology and tools}
+
+The project described in this work is written in two parts --- backend and the app.
+
+As we could pick any technology whatsoever we picked Ruby for the backend as this is the backend technology we are most familiar with. We have also picked a web framework called Ruby on Rails as it is the most popular web framework for Ruby. In the long run, it saved us a lot of time that would be required to set up a web server, handle requests, make database queries and many more.
+
+The backend consists of a few REST\footnote{Representational State Transfer} endpoints. One of them receives user's location and runs the algorithm against provided location to determine, whether the input is legitimate or not. After it is calculated, data is preserved in a database with an appropriate label. There is also an endpoint to list locations of all users at the time and an endpoint to return specific user's history.
+
+Implementing a mobile application didn't seem like an easy task at first. Currently, if someone wants to make a mobile application they have to target a specific platform --- Android or iOS. Developing for these platforms isn't easy at all. For the Android development, you have to know Java, Kotlin or C++, have Android Studio installed, and knowledge on what to do. Fortunately, there are many resources on how to start. Authors of this work do not have an Android phone, so there would be issues with running the app in a simulator, which would defeat the purpose of this work. The iOS side of things is not easier either, as it requires knowledge of Swift or Objective-C, having XCode installed on a macOS device, a paid developer account and many more. Even if we decided to go with iOS, it would require a lot of work, time and resources to develop a simple app. At that point, we started reading through the Internet and we learned there are many JavaScript compilers that compile your code into native-to-the-platform code. One of them is React Native --- a technology that allows writing JavaScript code in a React Framework that is compiled to a native app. This made great news to us, as we didn't have to learn any other tools or languages, as we know JavaScript perfectly well.
+
+The app consists of a view that presents a native-to-iOS map. On the map, there are markers that represent locations of all app users in real time. If a marker is held, more details about the location are shown --- a name of the user and the time of the measurement. When a marker is clicked, the map goes into the \textit{history} mode where all historical locations of that particular user are displayed. You can then click anywhere on the map to go back to the \textit{normal} mode. In the background, any time the app is open, current location of the user is sent to the server to update user's location.
+
+\section{Implementation details}

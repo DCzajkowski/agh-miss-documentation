@@ -78,7 +78,7 @@
         \begin{tabular}{p{45mm}l}
             Author: & {\itshape \@author}\\[-1mm]
             Degree programme: & {\itshape \@degreeprogramme}\\[-1mm]
-            Supervisor: & {\itshape \@supervisor}\\
+            Lecturer: & {\itshape \@supervisor}\\
         \end{tabular}
     }
 }

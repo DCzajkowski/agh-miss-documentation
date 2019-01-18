@@ -3,7 +3,7 @@
 
 % Lista wszystkich języków stanowiących języki pozycji bibliograficznych użytych w pracy.
 % (Zgodnie z zasadami tworzenia bibliografii każda pozycja powinna zostać utworzona zgodnie z zasadami języka, w którym dana publikacja została napisana.)
-\usepackage[english,polish]{babel}
+\usepackage[english]{babel}
 
 % Użyj polskiego łamania wyrazów (zamiast domyślnego angielskiego).
 % \usepackage{polski}
@@ -18,31 +18,37 @@
 \usepackage{amsmath}
 \usepackage{amsthm}
 
+\usepackage{float}
+
 % --- < bibliografia > ---
 
+% \usepackage[
+% style=numeric,
+% sorting=none,
+% %
+% % Zastosuj styl wpisu bibliograficznego właściwy językowi publikacji.
+% language=english,
+% % autolang=other,
+% % Zapisuj datę dostępu do strony WWW w formacie RRRR-MM-DD.
+% urldate=iso8601,
+% % Nie dodawaj numerów stron, na których występuje cytowanie.
+% backref=false,
+% % Podawaj ISBN.
+% isbn=false,
+% url=true,
+% %
+% % Ustawienia związane z polskimi normami dla bibliografii.
+% maxbibnames=3,
+% % Jeżeli używamy BibTeXa:
+% backend=bibtex
+% ]{biblatex}
+
 \usepackage[
-style=numeric,
-sorting=none,
-%
-% Zastosuj styl wpisu bibliograficznego właściwy językowi publikacji.
-language=autobib,
-autolang=other,
-% Zapisuj datę dostępu do strony WWW w formacie RRRR-MM-DD.
-urldate=iso8601,
-% Nie dodawaj numerów stron, na których występuje cytowanie.
-backref=false,
-% Podawaj ISBN.
-isbn=true,
-% Nie podawaj URL-i, o ile nie jest to konieczne.
-url=false,
-%
-% Ustawienia związane z polskimi normami dla bibliografii.
-maxbibnames=3,
-% Jeżeli używamy BibTeXa:
-backend=bibtex
+    style=numeric,
+    backend=bibtex
 ]{biblatex}
 
-\usepackage{csquotes}
+% \usepackage{csquotes}
 % Ponieważ `csquotes` nie posiada polskiego stylu, można skorzystać z mocno zbliżonego stylu chorwackiego.
 % \DeclareQuoteAlias{croatian}{polish}
 
@@ -87,7 +93,7 @@ backend=bibtex
 
 \AtBeginDocument{
   \renewcommand{\tablename}{Table}
-  \renewcommand{\figurename}{Picture}
+  \renewcommand{\figurename}{Figure}
 }
 
 % ------------------------
@@ -174,11 +180,22 @@ backend=bibtex
 \clearpage
 
 \include{chapters/introduction}
-\include{chapters/literature_review}
-\include{chapters/proposed_model_of_the_phenomenon}
-\include{chapters/simulation_of_the_phenomenon_-_implementation}
-\include{chapters/results_of_the_simulation}
+\include{chapters/literature-review}
+\include{chapters/proposed-model-of-the-phenomenon}
+\include{chapters/simulation-of-the-phenomenon---implementation}
+\include{chapters/results-of-the-simulation}
 \include{chapters/conclusions}
+
+\nocite{fy}
+\nocite{awb}
+\nocite{jtyjycwlnm}
+\nocite{rbehs}
+\nocite{dp}
+\nocite{gapi}
+\nocite{hf}
+\nocite{gcd}
+\nocite{pb}
+\nocite{slowpsybx}
 
 % itd.
 % \appendix
