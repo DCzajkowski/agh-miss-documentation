@@ -2,7 +2,6 @@
 *.run.xml
 *.bib
 *.toc
-*.pdf
 *.log
 *.bbl
 *.blg
