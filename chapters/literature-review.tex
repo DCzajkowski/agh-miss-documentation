@@ -1,7 +1,5 @@
 \chapter{Literature review}
 
-\blindtext[2]
-
 In this chapter, we would like to focus on existing approaches to GPS data collection and postprocessing. Our goal is also to learn about possible ways of data filtering, travel modes detection and route approximation.
 
 According to many of the reviewed publications, locations can be acquired using one of many technologies e.g. Geographic Information Systems (GIS), Radio Frequency Identification (RFID), Wireless Local Area Network (WLAN) and Global Positioning System (GPS). It is worth mentioning that the latter is by far the most popular and easiest to implement on a large scale. This is because such locations can be obtained using a module built into smartphones so there is no need for an additional device. Except for geolocalization data, engineers also collect acceleration, direction and height above the sea level. A popular solution is to use a mobile app for localization sampling and displaying results. Obtaining essential data can be performed in some interval (eg. 10 seconds) or after parameters' change. This allows them to achieve regular, accurate data in terms of time or location.
@@ -11,8 +9,8 @@ After collecting GPS samples many of the authors mention some way of data filter
 A man can perform data clustering based on travelling mode to remove undesired activities.  Another interesting solution is to use the accelerometer combined with time measurements to decide if any steps were made during the tour. That way they can determine which travels were made with a vehicle. Some of the engineers behind the publications even reached for machine learning algorithms to recognize walking habits and to label them as 'walking activity'.
 
 \begin{figure}[]
-    \includegraphics[width=0.9\textwidth]{images/article-map.png}
-    \caption{Robust principal curve (green) fitted to GPS point cloud data. Image by Chris Brunsdon, "Path Estimation from GPS Tracks"}
+    \includegraphics[width=0.8\textwidth]{images/article-map.png}
+    \caption{Robust principal curve (green) fitted to GPS point cloud data. \\ \textit{source: Chris Brunsdon, Path Estimation from GPS Tracks}}
     \label{fig:chrismap}
 \end{figure}
 

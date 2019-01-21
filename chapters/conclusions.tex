@@ -1,7 +1,10 @@
 \chapter{Summary}
+
 \section{Conclusions}
+Although we had little problems with GPS accuracy, we managed to achieve our goal. This project proves that we are able to distinguish walking modes of the person using only GPS data. There is a lot of room for improvements and tweaks but it is working properly. We experienced how to work with inaccurate data and filter out possible anomalies.
 
 \section{Model in the context of existing solutions}
+Applications available today doesn't distinguish walking modes at all. Strava, Endomondo and Google maps can't tell whether you have been running, walking or driving a car. They only track your statistics. We think that our solution could revolutionize outdoor activity tracking apps. Being able to tell how long and where have you been walking in the past is a crucial element of data about your daily activities.
 
 \section{Biggest challenges and achievements}
 The biggest challenge we have encountered was creating a reliable algorithm that would accurately filter data that is not coming from a walking human. As can be seen in the chapter~\ref{ch:model}, proposed model is complicated and consists of many parts. Removing points that are apart from each other more than some distance, filtering out points that are in a near approximation that are a result of a \textit{teleportation}, approximating stationary location by averaging coordinates etc. To come up with all of these solutions took quite some time. Another thing was implementing those solutions, which took even more time. We are very happy we came up with a working solution that is working quite reliably and, to us, is very impressive. Should we ever have to implement a location-based mobile app, we would definitely use a solution described in this article. It is not very hard to implement and improves a system heavily.

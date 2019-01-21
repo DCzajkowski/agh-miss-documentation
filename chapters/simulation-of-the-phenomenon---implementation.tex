@@ -13,3 +13,67 @@ Implementing a mobile application didn't seem like an easy task at first. Curren
 The app consists of a view that presents a native-to-iOS map. On the map, there are markers that represent locations of all app users in real time. If a marker is held, more details about the location are shown --- a name of the user and the time of the measurement. When a marker is clicked, the map goes into the \textit{history} mode where all historical locations of that particular user are displayed. You can then click anywhere on the map to go back to the \textit{normal} mode. In the background, any time the app is open, current location of the user is sent to the server to update user's location.
 
 \section{Implementation details}
+In this section, we will describe two main algorithms used to store locations and retrieve past walking paths of the user.
+
+In our database, we have two tables: one for representing users and one for locations. I will refer to the model of a user with \textit{User} and to a location with \textit{Location}.
+
+The process of storing a new sample consists mainly of computing average speed needed to achieve new location. To compute the distance between to points we use Haversine formula which is described as below:
+
+\begin{equation}
+    \displaystyle d=2r\arcsin \left({\sqrt {\sin ^{2}\left({\frac {\varphi _{2}-\varphi _{1}}{2}}\right)+\cos(\varphi _{1})\cos(\varphi _{2})\sin ^{2}\left({\frac {\lambda _{2}-\lambda _{1}}{2}}\right)}}\right)
+\end{equation}
+where~$\varphi _{1},\varphi _{2}$~are~latitudes~and~$\lambda _{1},\lambda _{2}$~are~longitudes.
+
+Here is some pseudo code of the storing algorithm:
+\begin{lstlisting}
+my_user = User.find(user_id)
+last_location = my_user.locations().last()
+distance = Haversine(new_location, last_location)
+time = new_location.creation_time() - last_location.creation_time()
+speed = distance / time
+if (speed > threshold)
+    new_location.status = unreachable
+else
+    new_location.status = reachable
+end
+return new_location.save()
+\end{lstlisting}
+Another crucial part of our system is the algorithm rendering old paths. Here you can get a quick glimpse of it:
+\begin{lstlisting}
+my_user = User.find(user_id)
+my_user.locations()
+routes = [] // group reachable locations into walking paths
+counter = 0
+
+for (location in locations)
+    if (location.status == reachable)
+        routes[counter].push(location)
+    else
+        if (routes[counter] != null)
+            counter+=1
+        end
+    end
+end
+
+// remove stoppage points
+routes.filter do (path)
+    // calculating center of mass in path
+    com = {lat: 0, lon: 0}
+
+    for (location in path)
+        com.lat += location.lat
+        com.lon += location.lon
+    end
+
+    com.lat /= path.size()
+    com.lon /= path.size()
+
+    // check if there is a point in the path
+    // further than a threshold from the centre of mass
+    return path.any do (location)
+        distance = Haversine(location, com)
+        return distance > threshold
+    end
+end
+\end{lstlisting}
+As you can see we group reachable locations together and after grouping, we check if any of the paths in routes has all of its locations in a small area. This would mean that probably this path is actually a temporary stoppage on traffic lights and we do not want to render it as walking.
